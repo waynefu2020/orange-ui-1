@@ -40,6 +40,7 @@ aside {
   position: fixed;
   left: 0;
   top: 0;
+  padding-top: 70px;
   > h2 {
     margin-bottom: 4px;
   }

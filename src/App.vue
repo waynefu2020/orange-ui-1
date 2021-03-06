@@ -3,13 +3,12 @@
 </template>
 
 <script lang="ts">
-import {ref, provide} from "vue";
-
+import {provide, ref} from 'vue'
 export default {
   name: 'App',
   setup(){
-    const menuVisible = ref(false)
-    provide('xxx', menuVisible)
+    const menuVisible = ref(false);
+    provide('menuVisible', menuVisible)
   }
 }
 </script>

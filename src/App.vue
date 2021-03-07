@@ -10,7 +10,7 @@ export default {
   name: 'App',
   setup() {
     const width = document.documentElement.clientWidth;
-    const menuVisible = ref(width <= 300 ? false : true);
+    const menuVisible = ref(width > 300 ? false : true);
     provide('menuVisible', menuVisible);
     router.afterEach(() => {
       if(width<=500){

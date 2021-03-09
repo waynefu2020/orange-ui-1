@@ -1,5 +1,21 @@
 <template>
-  <button>
-    <slot/>
-  </button>
+  <div :size="size">
+    <button v-bind="rest">
+      <slot/>
+    </button>
+  </div>
 </template>
+
+<script lang="ts">
+  export default {
+    inheritAttrs: false,
+    props:{},
+    setup(props, context){
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+
+</style>
+

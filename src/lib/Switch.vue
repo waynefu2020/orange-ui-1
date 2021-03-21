@@ -1,5 +1,5 @@
 <template>
-  <button @click="toggle" :class="{checked: value}">
+  <button class="orange-switch" @click="toggle" :class="{'orange-checked': value}">
   <!--如果x的值为true，那么button标签的class属性就为checked-->
     <span></span>
   </button>
@@ -24,7 +24,7 @@ export default {
 <style lang="scss" scoped>
 $h: 22px;
 $h2: $h - 4px;
-button {
+.orange-switch {
   position: relative;
   border: none;
   border-radius: $h/2;
@@ -41,7 +41,7 @@ button {
     border-radius: $h2/2;
     transition: all 250ms;
   }
-  &.checked{
+  &.orange-checked{
     background: #3C91F7;
     > span{
       left: calc(100% - #{$h2} - 2px);
@@ -51,7 +51,7 @@ button {
   &:active{
     > span{ width: $h2+4px;}
   }
-  &.checked:active{
+  &.orange-checked:active{
     > span{ width: $h2+4px; margin-left: -4px;}
   }
 }

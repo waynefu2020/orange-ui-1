@@ -1,8 +1,6 @@
 <template>
-  <button class="orange-button"
-          :class="classes"
-          :disabled="disabled"
-  >
+  <button class="orange-button" :class="classes" :disabled="disabled">
+    <span v-if="loading" class="orange-loadingIndicator"></span>
     <slot/>
   </button>
 </template>
@@ -27,6 +25,10 @@ export default {
     disabled: {
       type: Boolean,
       default: 'false'
+    },
+    loading: {
+      type: Boolean,
+      default: 'false'
     }
   },
   setup(props) {
@@ -47,6 +49,7 @@ export default {
 $h: 32px;
 $blue: #40a9ff;
 $red: #ED5B56;
+$grey: #F5F5F5;
 .orange-button {
   box-sizing: border-box;
   height: $h;
@@ -78,6 +81,7 @@ $red: #ED5B56;
   &::-moz-focus-inner {
     border: 0;
   }
+
   &.orange-theme-link {
     border-color: transparent;
     box-shadow: none;
@@ -135,29 +139,71 @@ $red: #ED5B56;
       }
     }
   }
-  &.orange-theme-text{
-    &.orange-level-main{
+
+  &.orange-theme-text {
+    &.orange-level-main {
       color: $blue;
+
       &:hover,
       &:focus {
         color: darken($blue, 10%);
       }
     }
-    &.orange-level-danger{
+
+    &.orange-level-danger {
       color: $red;
+
       &:hover,
       &:focus {
         color: darken($red, 10%);
       }
     }
   }
-  &.orange-theme-link{
-    &.orange-level-danger{
+
+  &.orange-theme-link {
+    &.orange-level-danger {
       color: $red;
+
       &:hover,
       &:focus {
         color: darken($red, 10%);
       }
+    }
+  }
+
+  &.orange-theme-button {
+    //&[disabled] {
+    //  cursor: not-allowed;
+    //  color: $grey;
+    //  &:hover {
+    //    border-color: $grey;
+    //  }
+    //}
+    //&.orange-theme-link, &.orange-theme-text {
+    //  &[disabled] {
+    //    cursor: not-allowed;
+    //    color: $grey;
+    //  }
+    //}
+    > .orange-loadingIndicator {
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      margin-right: 4px;
+      border-radius: 8px;
+      border-color: $blue $blue $blue transparent;
+      border-style: solid;
+      border-width: 2px;
+      animation: orange-spin 1s infinite linear;
+    }
+  }
+
+  @keyframes orange-spin {
+    0% {
+      transform: rotate(0deg)
+    }
+    100% {
+      transform: rotate(360deg)
     }
   }
 

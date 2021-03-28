@@ -1,7 +1,7 @@
 <template>
-  <button class="orange-button" :class="classes" :disabled="disabled">
+  <button class="orange-button" :class="classes">
     <span v-if="loading" class="orange-loadingIndicator"></span>
-    <slot/>
+    <slot />
   </button>
 </template>
 
@@ -47,12 +47,13 @@ export default {
 
 <style lang="scss">
 $h: 32px;
-$blue: #40a9ff;
+$blue: #4082F6;
 $red: #ED5B56;
 $grey: #F5F5F5;
 .orange-button {
   box-sizing: border-box;
   height: $h;
+  margin: 6px 6px;
   padding: 0 12px;
   cursor: pointer;
   display: inline-flex;
@@ -61,6 +62,7 @@ $grey: #F5F5F5;
   white-space: nowrap;
   background: white;
   color: #333;
+
   border: 1px solid #d9d9d9;
   border-radius: 4px;
   box-shadow: 0 1px 0 fade-out(black, 0.95);
@@ -106,12 +108,16 @@ $grey: #F5F5F5;
     font-size: 24px;
     height: 48px;
     padding: 0 16px;
+    background: #4082F6;
+    color: white;
   }
 
   &.orange-size-small {
     font-size: 12px;
     height: 20px;
     padding: 0 4px;
+    background: #4082F6;
+    color: white;
   }
 
   &.orange-theme-button {

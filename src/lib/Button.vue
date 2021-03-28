@@ -1,6 +1,6 @@
 <template>
   <button class="orange-button" :class="classes">
-    <span v-if="loading" class="orange-loadingIndicator"></span>
+<!--    <span v-if="loading" class="orange-loadingIndicator"></span>-->
     <slot />
   </button>
 </template>

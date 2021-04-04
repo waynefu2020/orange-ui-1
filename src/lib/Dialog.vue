@@ -3,14 +3,17 @@
     <div class="orange-dialog-overlay"></div>
     <div class="orange-dialog-wrapper">
       <div class="orange-dialog">
-        <header>标题 <span class="orange-dialog-close"></span></header>
+        <header>
+          标题
+          <span @click="onClickOverlay" class="orange-dialog-close"></span>
+        </header>
         <main>
           <p>1</p>
           <p>2</p>
         </main>
         <footer>
-          <Button level="main">OK</Button>
-          <Button>Cancel</Button>
+          <Button @click="ok" level="main">OK</Button>
+          <Button @click="cancel">Cancel</Button>
         </footer>
       </div>
     </div>
@@ -21,13 +24,45 @@
 import Button from './Button.vue';
 
 export default {
-  props:{
-    visible:{
+  props: {
+    visible: {
       type: Boolean,
-      default: 'false'
+      default: false
+    },
+    closeOnClickOverlay: {
+      type: Boolean,
+      default: true
+    },
+    ok: {
+      type: Function
+    },
+    cancel: {
+      type: Function
     }
   },
-  components: {Button}
+  components: {
+    Button
+  },
+  setup(props, context) {
+    const close = () => {
+      context.emit('update:visible', false);
+    };
+    const onClickOverlay = () => {
+      if (props.closeOnClickOverlay) { close(); }
+    };
+    const ok = () => {
+      if (props.ok?.() != false) {
+        //props.ok && props.ok() != false
+        close();
+      }
+    };
+    const cancel = () => {
+      context.emit('cancel');
+      close();
+    };
+    return {close, onClickOverlay, ok, cancel};
+  }
+
 };
 </script>
 

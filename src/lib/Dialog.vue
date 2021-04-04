@@ -1,21 +1,23 @@
 <template>
   <template v-if="visible">
-    <div class="orange-dialog-overlay"></div>
-    <div class="orange-dialog-wrapper">
-      <div class="orange-dialog">
-        <header>
-          <slot name="title"/>
-          <span @click="onClickOverlay" class="orange-dialog-close"></span>
-        </header>
-        <main>
-          <slot name="content"/>
-        </main>
-        <footer>
-          <Button @click="ok" level="main">OK</Button>
-          <Button @click="cancel">Cancel</Button>
-        </footer>
+    <Teleport to="body">
+      <div class="orange-dialog-overlay"></div>
+      <div class="orange-dialog-wrapper">
+        <div class="orange-dialog">
+          <header>
+            <slot name="title"/>
+            <span @click="onClickOverlay" class="orange-dialog-close"></span>
+          </header>
+          <main>
+            <slot name="content"/>
+          </main>
+          <footer>
+            <Button @click="ok" level="main">OK</Button>
+            <Button @click="cancel">Cancel</Button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </template>
 </template>
 

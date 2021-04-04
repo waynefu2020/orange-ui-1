@@ -4,12 +4,11 @@
     <div class="orange-dialog-wrapper">
       <div class="orange-dialog">
         <header>
-          标题
+          {{title}}
           <span @click="onClickOverlay" class="orange-dialog-close"></span>
         </header>
         <main>
-          <p>1</p>
-          <p>2</p>
+          <slot />
         </main>
         <footer>
           <Button @click="ok" level="main">OK</Button>
@@ -25,6 +24,10 @@ import Button from './Button.vue';
 
 export default {
   props: {
+    title:{
+      type: String,
+      default: '提示'
+    },
     visible: {
       type: Boolean,
       default: false

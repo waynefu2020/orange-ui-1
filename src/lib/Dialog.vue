@@ -4,11 +4,11 @@
     <div class="orange-dialog-wrapper">
       <div class="orange-dialog">
         <header>
-          {{title}}
+          <slot name="title"/>
           <span @click="onClickOverlay" class="orange-dialog-close"></span>
         </header>
         <main>
-          <slot />
+          <slot name="content"/>
         </main>
         <footer>
           <Button @click="ok" level="main">OK</Button>

@@ -3,8 +3,13 @@
   <h1>示例1</h1>
   <Button @click="toggle">toggle</Button>
   <Dialog v-model:visible="x" :ok="f1" :cancel="f2">
-    <div>hi</div>
-    <div>hello</div>
+    <template v-slot:content>
+      <strong>hi</strong>
+      <div>hello</div>
+    </template>
+    <template v-slot:title>
+      <strong>加粗的标题</strong>
+    </template>
   </Dialog>
 </template>
 

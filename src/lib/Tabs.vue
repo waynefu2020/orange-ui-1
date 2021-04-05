@@ -2,14 +2,17 @@
   <div class="orange-tabs">
     <div class="orange-tabs-nav">
       <div class="orange-tabs-nav-item"
+           v-for="(t,index) in titles"
            @click="select(t)"
            :class="{selected: t === selected}"
-           v-for="(t,index) in titles" :key="index">{{ t }}
+           :key="index">{{t}}
       </div>
+      <div class="orange-tabs-nav-indicator"></div>
     </div>
     <div class="orange-tabs-content">
-      {{current}}
-      <component class="orange-tabs-content-item" :is="current"/>
+      <component class="orange-tabs-content-item"
+                 :class="{selected: c.props.title === selected}"
+                 v-for="c in defaults" :is="c"/>
     </div>
   </div>
 </template>
@@ -26,16 +29,17 @@ export default {
   },
   setup(props, context) {
     const defaults = context.slots.default();
+    console.log(defaults);
     defaults.forEach((tag) => {
       if (tag.type != Tab) {
         throw new Error('Tabs子标签必须是Tab');
       }
     });
-    const current = computed(()=>{
+    const current = computed(() => {
       console.log('重新return');
-      return  defaults.filter((tag) => {
+      return defaults.filter((tag) => {
         return tag.props.titles === props.selected;
-      })[0]
+      })[0];
     });
     const titles = defaults.map((tag) => {
       return tag.props.title;
@@ -49,11 +53,15 @@ export default {
 </script>
 
 <style lang="scss">
+$blue: #40a9ff;
+$color: #333;
+$border-color: #d9d9d9;
 .orange-tabs {
   &-nav {
     display: flex;
-    color: #333;
-    border-bottom: 1px solid #d9d9d9;
+    color: $color;
+    border-bottom: 1px solid $border-color;
+    position: relative;
 
     &-item {
       padding: 8px 0;
@@ -65,13 +73,29 @@ export default {
       }
 
       &.selected {
-        color: #40a9ff;
+        color: $blue;
       }
+    }
+    &-indicator{
+      position: absolute;
+      height: 3px;
+      background: $blue;
+      left: 0;
+      width: 100px;
+      bottom: -1px;
     }
   }
 
   &-content {
     padding: 8px 0;
+
+    &-item {
+      display: none;
+
+      &.selected {
+        display: block;
+      }
+    }
   }
 }
 </style>

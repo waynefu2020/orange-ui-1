@@ -44,7 +44,7 @@ $color: #007974;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 20;
   width: 100%;
   justify-content: center;
   align-items: center;

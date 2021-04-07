@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <Topnav :toggle-menu-button-visible="true" class="nav"/>
+    <Topnav toggleMenuButtonVisible class="nav"/>
     <div class="content">
       <aside v-if="menuVisible">
         <h2>文档</h2>
@@ -40,28 +40,31 @@
 
 <script lang="ts">
 import Topnav from '../components/Topnav.vue';
-import {inject, Ref} from 'vue'
+import {inject, Ref} from 'vue';
+
 export default {
   components: {
     Topnav
   },
-  setup(){
-    const menuVisible = inject<Ref<boolean>>('menuVisible')
-    return {menuVisible}
+  setup() {
+    const menuVisible = inject<Ref<boolean>>('menuVisible');
+    return {menuVisible};
   }
 };
 </script>
 
 <style lang="scss" scoped>
 
-.layout{
+.layout {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  > .nav{
+
+  > .nav {
     flex-shrink: 0;
   }
-  > .content{
+
+  > .content {
     flex-grow: 1;
     padding-top: 60px;
     padding-left: 156px;
@@ -70,15 +73,21 @@ export default {
     }
   }
 }
-.content{
+
+.content {
   display: flex;
-  > aside{ flex-shrink: 0; }
-  > main{
+
+  > aside {
+    flex-shrink: 0;
+  }
+
+  > main {
     flex-grow: 1;
     padding-left: 16px;
     background: white;
   }
 }
+
 aside {
   background: lightblue;
   width: 150px;
@@ -88,24 +97,28 @@ aside {
   left: 0;
   top: 0;
   height: 100%;
+
   > h2 {
     margin-bottom: 4px;
     padding: 0 16px;
   }
+
   > ol {
     > li {
-      >a{
+      > a {
         display: block;
         padding: 4px 16px;
         text-decoration: none;
       }
-      .router-link-active{
+
+      .router-link-active {
         background: white;
       }
     }
   }
 }
-main{
+
+main {
   overflow: auto;
 }
 </style>

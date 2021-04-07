@@ -10,7 +10,7 @@
         <Button>查看代码</Button>
       </div>
       <div class="demo-code">
-        <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+        <pre>{{Switch1Demo.__sourceCode}}</pre>
       </div>
     </div>
     <div class="demo">
@@ -22,7 +22,7 @@
         <Button>查看代码</Button>
       </div>
       <div class="demo-code">
-        <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+        <pre>{{Switch2Demo.__sourceCode}}</pre>
       </div>
     </div>
   </div>
@@ -39,7 +39,7 @@ export default {
   components: {Switch, Button, Switch1Demo, Switch2Demo},
   setup() {
     const bool = ref(false);
-    return {bool};
+    return {bool,Switch1Demo,Switch2Demo};
   }
 };
 </script>
@@ -71,8 +71,8 @@ $border-color: #d9d9d9;
 
     > pre {
       line-height: 1.1;
-      font-family: Consolas, 'Courier New', Courier, monospace;
       margin: 0;
+      font-family: Consolas, 'Courier New', Courier, monospace;
     }
   }
 }

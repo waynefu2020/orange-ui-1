@@ -3,11 +3,16 @@
     <div class="topnavAndBanner">
       <Topnav/>
       <div class="banner">
-        <h1>Orange UI</h1>
-        <h2>极简UI框架</h2>
+        <h1>Orange-UI</h1>
+        <h2>基于Vue 3的极简UI组件库</h2>
         <p class="actions">
-          <a href="https://github.com/waynefu2020/orange-ui-1">Github</a>
-          <router-link to="/doc">开始</router-link>
+          <a href="https://github.com/waynefu2020/orange-ui-1">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-github"></use>
+            </svg>
+            GITHUB
+          </a>
+          <router-link to="/doc">快速上手</router-link>
         </p>
       </div>
     </div>
@@ -19,7 +24,7 @@
           <use xlink:href="#icon-vue"></use>
         </svg>
         <h3>基于Vue 3</h3>
-        <p>骄傲地使用了 Vue 3 Compositions API</p>
+        <p>基于 Vue 3 Compositions API开发</p>
       </li>
       <li>
         <svg>
@@ -55,7 +60,7 @@ $border-radius: 4px;
 $color: #007974;
 
 .topnavAndBanner {
-  background: linear-gradient(145deg, rgba(227, 255, 253, 1) 0%, rgba(183, 233, 230, 1) 100%);
+  background: linear-gradient(145deg, rgba(254,227,199,1) 0%, rgba(237,148,99,1) 100%);
   clip-path: ellipse(80% 60% at 50% 40%);
 }
 
@@ -109,23 +114,29 @@ $color: #007974;
 }
 
 .banner {
-  color: $color;
+  color: #1C1C1C;
   padding: 100px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
+  >h1{
+    font-size: 48px;
+  }
+  >h2{
+    font-size: 21px;
+  }
   > .actions {
     padding: 8px 0;
 
     > a {
       margin: 0 8px;
-      color: white;
-      background: $green;
+      color: #1C1C1C;
+      background: #FFFFFF;
       display: inline-block;
-      padding: 0 8px;
+      padding: 4px 8px;
       border-radius: $border-radius;
+      box-shadow: 1px 1px 1px #dadada;
 
       &:hover {
         text-decoration: none;

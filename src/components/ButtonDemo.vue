@@ -1,19 +1,10 @@
 <template>
-  <div>Button示例</div>
+  <h1>按钮</h1>
   <Demo :component="Button1Demo"/>
   <Demo :component="Button2Demo"/>
   <Demo :component="Button3Demo"/>
   <Demo :component="Button4Demo"/>
   <Demo :component="Button5Demo"/>
-  <hr>
-<!--  <h1>示例1</h1>-->
-<!--  <div>-->
-<!--    <Button theme="button">你好</Button>-->
-<!--    <Button theme="link">你好</Button>-->
-<!--    <Button theme="text">你好</Button>-->
-<!--  </div>-->
-
-
 </template>
 
 <script lang="ts">
@@ -32,3 +23,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+h1{
+  color: #737373;
+}
+</style>

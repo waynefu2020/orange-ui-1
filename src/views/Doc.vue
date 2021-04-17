@@ -1,8 +1,9 @@
 <template>
   <div class="layout">
+    <Topnav toggleMenuButtonVisible class="nav" />
     <div class="content">
       <div class="aside-overlay" v-if="menuVisible" @click="menuVisible = false"></div>
-      <aside>
+      <aside v-if="menuVisible">
         <div class="title">
           <router-link to="/">Orange-UI</router-link>
           <p>V0.1</p>
@@ -87,7 +88,7 @@ $aside-index: 10;
 
   > main {
     flex-grow: 1;
-    padding-left: 16px;
+    padding: 0 16px;
     background: white;
   }
 }

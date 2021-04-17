@@ -60,9 +60,7 @@ $grey: #F5F5F5;
   justify-content: center;
   align-items: center;
   white-space: nowrap;
-  background: white;
   color: #333;
-
   border: 1px solid #d9d9d9;
   border-radius: 4px;
   box-shadow: 0 1px 0 fade-out(black, 0.95);
